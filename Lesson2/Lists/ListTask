@@ -1,0 +1,45 @@
+print("Rules: Enter price or \"stop\". ")
+priceList = []
+count = 0
+average = 0
+
+# Вкарване на данни в масива от потребителя.
+# Настроено е така, че потребителят да може да слага само int или float.
+# Ако вкара "stop", завършва вкарването на данни.
+
+while count == 0:
+    userInput = (input("Enter price:"))
+
+
+    try:
+        float(userInput)
+        priceList.append(userInput)
+    except ValueError:
+        if userInput == "stop" and len(priceList) >= 4:
+            count = 1
+        else:
+            print("Please enter a numerical price or \"stop\"")
+
+
+#Сортира масива от данни, за да получи най-висок и най-нисък резултат в двата му края
+priceList.sort()
+
+print(priceList)
+print("Min Price is:" + priceList[0])
+print("Max Price is:" + priceList[-1])
+
+
+#Маха най-висока и най-ниска цена
+priceList.pop(0)
+priceList.pop(-1)
+#Намира средно-аритметичното от останалите стойности
+
+for i in priceList:
+    average += float(i)
+
+average /= float(len(priceList))
+print(average)
+
+
+
+
