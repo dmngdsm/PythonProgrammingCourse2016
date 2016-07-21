@@ -111,7 +111,7 @@ for person in people:
 
 for boy in boys:
     for girl in girls:
-        if (boy['age'] - girl['age']) <= 0 and (boy['age'] - girl['age']) >= -6 and boy['name'] not in girl['ex']:
+        if (boy['age'] - girl['age']) <= 6 and (boy['age'] - girl['age']) >= -6 and boy['name'] not in girl['ex']:
             mutual_interests = list(set(boy["interests"]).intersection(set(girl["interests"])))
 
             if mutual_interests:
