@@ -1,0 +1,21 @@
+
+catalogue = []
+average = 0
+
+with open('./catalog_full.csv', encoding='utf-8') as f:
+    for line in f:
+        line.replace('\n', '')
+        line_list = line.split(',')
+        catalogue.append(line_list)
+
+
+
+for i in catalogue:
+
+     i[-1] = (i[-1].replace('\n', ''))
+     average += float( i[-1])
+
+average /= float(len(catalogue))
+
+
+print(average)
