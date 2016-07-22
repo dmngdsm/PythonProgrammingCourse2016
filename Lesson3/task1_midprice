@@ -18,4 +18,4 @@ for i in catalogue:
 average /= float(len(catalogue))
 
 
-print(average)
+print(format(average, '.2f'))
