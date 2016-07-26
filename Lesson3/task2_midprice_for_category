@@ -1,0 +1,49 @@
+#############DEFINE ARRAYS##############
+catalogue = []
+category_infant = []
+category_kid = []
+category_men = []
+category_women = []
+category_unisex = []
+categories_all = {'Infant':category_infant, 'Kid': category_kid, 'Men': category_men,'Women':
+    category_women,'Unisex': category_unisex}
+
+#############SPLIT LINES##############
+
+with open('./catalog_full.csv', encoding='utf-8') as f:
+    for line in f:
+        line.replace('\n', '')
+        line_list = line.split(',')
+        catalogue.append(line_list)
+
+#############SPLIT DIFFERENT CATEGORIES##############
+
+for i in catalogue:
+    i[-1] = (i[-1].replace('\n', ''))
+    if i[-2] == 'Infant':
+        category_infant.append(i[-1])
+    elif i[-2] == 'Kid':
+        category_kid.append(i[-1])
+    elif i[-2] == 'Men':
+        category_men.append(i[-1])
+    elif i[-2] == 'Woman':
+        category_women.append(i[-1])
+    else:
+        category_unisex.append(i[-1])
+
+
+#############DEFINE AN AVERAGE FUNCTION##############
+
+def average(category):
+    average = 0;
+
+    for k in category:
+        average += float(k);
+    return average /float(len(category))
+
+
+#############PRINT RESULTS##############
+
+
+for key in categories_all:
+    print(key, ':',format(average(categories_all[key]),  '.2f'))
