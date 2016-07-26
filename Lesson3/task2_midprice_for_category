@@ -12,7 +12,6 @@ categories_all = {'Infant':category_infant, 'Kid': category_kid, 'Men': category
 
 with open('./catalog_full.csv', encoding='utf-8') as f:
     for line in f:
-        line.replace('\n', '')
         line_list = line.split(',')
         catalogue.append(line_list)
 
@@ -44,6 +43,6 @@ def average(category):
 
 #############PRINT RESULTS##############
 
-
+print('Average Prices For Categories:')
 for key in categories_all:
     print(key, ':',format(average(categories_all[key]),  '.2f'))
